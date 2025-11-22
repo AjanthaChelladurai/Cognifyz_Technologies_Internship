@@ -1,0 +1,80 @@
+
+@import 'variables'; 
+
+
+@mixin button-style($bg-color) {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: $bg-color; 
+    color: white;
+    transition: background-color 0.3s;
+    &:hover {
+        background-color: darken($bg-color, 10%); 
+    }
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+header {
+    background-color: $primary-color;
+    color: white;
+    padding: $padding-base;
+    display: flex;
+    justify-content: space-between;
+
+    h1 { 
+        margin: 0;
+        font-size: 1.8em;
+    }
+
+    nav { 
+        a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+.card-section {
+    display: flex;
+    justify-content: space-around;
+    padding: $padding-base;
+
+    .card {
+        background: white;
+        padding: $padding-base;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        width: 45%;
+        
+        p {
+            font-size: $font-size-base; 
+        }
+    }
+}
+
+
+.btn-primary {
+    @include button-style($primary-color);
+}
+
+.btn-secondary {
+    @include button-style($secondary-color);
+}
